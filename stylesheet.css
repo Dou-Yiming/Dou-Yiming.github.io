@@ -196,3 +196,21 @@ a:active {
 /* body {
   background-color: #fdf6e389;
 } */
+
+/* publication toggle buttons */
+.button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9em;
+  color: #3b6f9f;
+  padding: 0;
+  margin: 0 0.1em;
+}
+.button:hover {
+  color: #FF69B4;
+}
+.selected-button {
+  font-weight: 600;
+  color: #000000;
+}
