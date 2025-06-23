@@ -207,7 +207,19 @@ a:active {
   padding: 0;
   margin: 0 0.1em;
 }
+.button-normal-size {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  color: #3b6f9f;
+  padding: 0;
+  margin: 0 0.1em;
+}
 .button:hover {
+  color: #FF69B4;
+}
+.button-normal-size:hover {
   color: #FF69B4;
 }
 .selected-button {
