@@ -94,12 +94,17 @@
 a {
   color: #1772d0;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:focus,
 a:hover {
   color: #f09228;
   text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body,
@@ -119,7 +124,15 @@ strong {
 
 heading {
   font-family: "Lato", Verdana, Helvetica, sans-serif;
-  font-size: 22px;
+  font-size: 24px;
+  font-weight: 550;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  padding-bottom: 3px;
+  margin-bottom: 0px;
 }
 
 papertitle {
@@ -225,4 +238,214 @@ a:active {
 .selected-button {
   font-weight: 600;
   color: #000000;
+}
+
+/* Social Icons Styling */
+.social-icons a {
+  display: inline-block;
+  margin: 0 12px;
+  font-size: 24px;
+  color: #3B5998;
+}
+
+.social-icons a i {
+  width: 24px;
+  text-align: center;
+}
+
+/* Reusable Layout Classes */
+.content-table {
+  width: 100%;
+  border: 0px;
+  border-spacing: 0px;
+  border-collapse: separate;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.section-wrapper {
+  padding: 0%;
+  width: 96%;
+  border: 0px;
+  border-spacing: 0px;
+  border-collapse: separate;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+}
+
+.section-content {
+  padding: 0px 10px;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.publication-media {
+  padding: 10px 20px;
+  width: 30%;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.publication-details {
+  width: 70%;
+  vertical-align: middle;
+}
+
+.publication-description {
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
+
+.experience-logo {
+  padding: 10px 50px;
+  width: 25%;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.experience-details {
+  width: 75%;
+  vertical-align: middle;
+}
+
+/* Publication filtering - hide non-selected when in selected mode */
+.publications-container.show-selected [data-selected="false"] {
+  display: none;
+}
+
+/* Publication filtering - show all when in all mode */
+.publications-container.show-all [data-selected] {
+  display: table-row;
+}
+
+/* Elegant Publication Cards */
+.publications-container tr {
+  margin-bottom: 10px;
+}
+
+.publication-media video,
+.publication-media img {
+}
+
+papertitle {
+  font-family: "Lato", Verdana, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Experience Section Elegant Cards */
+.content-table .experience-logo img {
+}
+
+/* Refined List Items */
+li {
+  padding: 2px 0;
+}
+
+/* Smooth Section Transitions */
+.content-table {
+  animation: fadeIn 0.6s ease-out;
+  margin-bottom: 5px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Elegant Button Styling */
+.button {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 15px;
+  padding: 4px 12px;
+  font-weight: 500;
+}
+
+.button-normal-size {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  color: #3b6f9f;
+  padding: 0;
+  margin: 0 0.1em;
+}
+
+.selected-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff !important;
+  border-color: transparent;
+  box-shadow: 0 1px 4px rgba(102, 126, 234, 0.3);
+}
+
+/* Honor Tags */
+honor {
+  font-family: "Lato", Verdana, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* University Names */
+university {
+  font-family: "Lato", Verdana, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Enhanced Links */
+a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+
+/* Responsive Design Improvements */
+@media (max-width: 768px) {
+  name, cname {
+    font-size: 26px !important;
+  }
+
+  heading {
+    font-size: 20px;
+  }
+
+  .section-wrapper {
+    padding: 5px;
+  }
+
+  .publication-media,
+  .experience-logo {
+    width: 100% !important;
+    display: block;
+    padding: 5px !important;
+  }
+
+  .publication-details,
+  .experience-details {
+    width: 100% !important;
+    display: block;
+  }
 }

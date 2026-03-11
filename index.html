@@ -16,16 +16,17 @@
   <link rel="icon" href="figs/Cornell_icon.png">
   <!-- <link rel="icon" href="figs/UMich-icon.png"> -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <script>
   function showSelected() {
-    document.getElementById('selected_publications').style.display = 'block';
-    document.getElementById('full_publications').style.display = 'none';
+    const container = document.getElementById('publications_list');
+    container.className = 'publications-container show-selected';
   }
   function showAllByYear() {
-    document.getElementById('selected_publications').style.display = 'none';
-    document.getElementById('full_publications').style.display = 'block';
+    const container = document.getElementById('publications_list');
+    container.className = 'publications-container show-all';
   }
   function selectButton(id) {
     document.querySelectorAll('.button').forEach(btn => btn.classList.remove('selected-button'));
@@ -75,13 +76,12 @@
                   </p>
 
                   <!-- links -->
-                  <p style="text-align:center">
-                    <a href="mailto:yd498@cornell.edu">Email</a> &nbsp·&nbsp
-                    <!-- <a href="files/CV_Yiming Dou.pdf">CV</a> &nbsp/&nbsp -->
-                    <a href="https://scholar.google.com/citations?user=IMsjP1sAAAAJ">Google Scholar</a> &nbsp·&nbsp
-                    <a href="https://github.com/Dou-Yiming">Github</a> &nbsp·&nbsp
-                    <a href="https://twitter.com/_YimingDou">Twitter</a> &nbsp·&nbsp
-                    <a href="./figs/wechat.jpg">WeChat</a>
+                  <p style="text-align:center" class="social-icons">
+                    <a href="mailto:yd498@cornell.edu" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://scholar.google.com/citations?user=IMsjP1sAAAAJ" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="https://github.com/Dou-Yiming" title="Github"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com/_YimingDou" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                    <a href="./figs/wechat.jpg" title="WeChat"><i class="fab fa-weixin"></i></a>
                   </p>
                 </td>
                 <!-- profile image -->
@@ -94,50 +94,42 @@
             </tbody>
           </table>
           <!-- News -->
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table class="content-table">
             <tbody>
               <tr>
-                <td style="padding:0px 20px;width:100%;vertical-align:middle">
+                <td class="section-content" style="padding:0px 20px">
                   <heading>News</heading>
                 </td>
               </tr>
             </tbody>
           </table>
-          <table
-            style="padding:0%;width:96%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table class="section-wrapper">
             <tbody>
               <tr>
-                <td style="padding:0px 10px;width:100%;vertical-align:middle">
+                <td class="section-content">
                   <p>
                     <li style="line-height:125%">
                       08/2025:
-                      &#129395;
                       Our paper "Cross-Sensor Touch Generation" is selected as an oral presentation at CoRL 2025!
                     </li>
                     <li style="line-height:125%">
                       08/2025:
-                      &#x1F389;
                       One paper accepted to CoRL 2025! See you in Seoul!
                     </li>
                     <li style="line-height:125%">
                       02/2025:
-                      &#x1F389;
                       One paper accepted to CVPR 2025! See you in Nashville!
                     </li>
                     <li style="line-height:125%">
                       01/2025:
-                      &#x1F389;
                       Two papers accepted to ICRA 2025! See you in Atlanta!
                     </li>
                     <li style="line-height:125%">
                       09/2024:
-                      &#129395;
                       Selected as an Outstanding Reviewer for ECCV 2024!
                     </li>
                     <li style="line-height:125%">
                       02/2024:
-                      &#x1F389;
                       Three papers accepted to CVPR 2024! See you in Seattle!
                     </li>
                     <!-- <li style="line-height:125%">
@@ -168,21 +160,19 @@
             </tbody>
           </table>
           <!-- Research Interests -->
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table class="content-table">
             <tbody>
               <tr>
-                <td style="padding:0px 20px;width:100%;vertical-align:middle">
+                <td class="section-content" style="padding:0px 20px">
                   <heading>Research Interests</heading>
                 </td>
               </tr>
             </tbody>
           </table>
-          <table
-            style="padding:0%;width:96%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table class="section-wrapper">
             <tbody>
               <tr>
-                <td style="padding:0px 10px;width:100%;vertical-align:middle;text-align:justify"">
+                <td class="section-content" style="text-align:justify">
                   <p style="text-align:justify;margin-bottom:5px">
                   Humans perceive the world with multiple senses,
                   based on which we establish abstract concepts to understand it.
@@ -215,11 +205,10 @@
             </tbody>
           </table>
           <!-- Publications -->
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table class="content-table">
             <tbody>
               <tr>
-                <td style="padding:0px 20px;width:100%;vertical-align:middle">
+                <td class="section-content" style="padding:0px 20px">
                   <heading>Publications</heading> (
                   <button class="button selected-button" id="btn-selected"
                     onclick="showSelected(); selectButton('btn-selected')">
@@ -236,19 +225,17 @@
             </tbody>
           </table>
 
-          <!-- 2.2 Selected (default) -->
-          <div id="selected_publications">
-            <table
-              style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <!-- Consolidated Publications List -->
+          <div id="publications_list" class="publications-container show-selected">
+            <table class="content-table">
               <tbody>
-                <tr>
-                  <td style="padding:10px 20px;width:30%;vertical-align:middle" align="center">
+                <!-- Cross-Sensor Touch Generation (Selected) -->
+                <tr data-selected="true">
+                  <td class="publication-media">
                     <video src="figs/publications/t2d2.mp4" width="250" autoplay muted playsinline loop></video>
                   </td>
-                  <td width="70%" valign="middle">
-                    <!-- heading -->
+                  <td class="publication-details">
                     <papertitle>Cross-Sensor Touch Generation</papertitle>
-                    <!-- authors -->
                     <br>
                     <a
                       href="https://scholar.google.com/citations?hl=en&user=40qJCVcAAAAJ&view_op=list_works&gmla=AOAOcb2_9BvSpCB7V9TJdqUXyEh-cyIvxbucDLBeQSWXW_zc59fx9wanTJUXb_0qTnmXky4zE9tjvOWTBLjEklmo">Samanta
@@ -257,200 +244,51 @@
                     <a href="https://mr-mikmik.github.io/">Miquel Oller</a>,
                     <a href="https://andrewowens.com/">Andrew Owens</a>,
                     <a href="https://www.mmintlab.com/people/nima-fazeli/">Nima Fazeli</a>
-                    <!-- conference & date -->
                     <br>
                     CoRL 2025 (<strong style="color: rgb(190, 11, 11);">Oral</strong>)
                     <br>
-                    <!-- links -->
                     <a href="https://openreview.net/pdf?id=oGcC8nMOit">paper</a>
                     · <a href="https://samantabelen.github.io/cross_sensor_touch_generation/">project page</a>
                     <br>
-                    <p style="margin-bottom:0px;margin-top:5px">
-                      We learn to translate touch signals captured from one touch sensor to another, which allows us to transfer object manipulation policies between sensors. 
+                    <p class="publication-description">
+                      We learn to translate touch signals captured from one touch sensor to another, which allows us to transfer object manipulation policies between sensors.
                     </p>
                   </td>
                 </tr>
 
-                <tr>
-                  <td style="padding:10px 20px;width:30%;vertical-align:middle" align="center">
-                    <video src="figs/publications/hearing_hands.mp4" width="250" autoplay muted playsinline
-                      loop></video>
+                <!-- Hearing Hands (Selected) -->
+                <tr data-selected="true">
+                  <td class="publication-media">
+                    <video src="figs/publications/hearing_hands.mp4" width="250" autoplay muted playsinline loop></video>
                   </td>
-                  <td width="70%" valign="middle">
-                    <!-- heading -->
-                    <papertitle>Hearing Hands: Generating Sounds from Physical Interactions in 3D Scenes
-                    </papertitle>
-                    <!-- authors -->
+                  <td class="publication-details">
+                    <papertitle>Hearing Hands: Generating Sounds from Physical Interactions in 3D Scenes</papertitle>
                     <br>
                     <strong>Yiming Dou</strong>,
                     <a href="https://prbs5kong.github.io/">Wonseok Oh</a>,
                     <a href="https://www.linkedin.com/in/yuqing-luo-452715249/">Yuqing Luo</a>,
                     <a href="https://antonilo.github.io/">Antonio Loquercio</a>,
                     <a href="https://andrewowens.com/">Andrew Owens</a>
-                    <!-- conference & date -->
                     <br>
                     CVPR 2025
                     <br>
-                    <!-- links -->
                     <a href="https://arxiv.org/abs/2506.09989">paper</a>
                     · <a href="https://www.yimingdou.com/hearing_hands/">project page</a>
                     · <a href="https://github.com/Dou-Yiming/hearing_hands">code</a>
                     <br>
-                    <p style="margin-bottom:0px;margin-top:5px">
+                    <p class="publication-description">
                       We make 3D scene reconstruction interactive by predicting the sounds of human hands physically interacting with the scene.
                     </p>
                   </td>
                 </tr>
 
-                <tr>
-                  <td style="padding:10px 20px;width:30%;max-width:25%;vertical-align:top" align="center">
-                    <video src="figs/publications/tarf.mp4" width="250"  autoplay muted playsinline loop></video>
-                  </td>
-                  <td width="70%" valign="middle">
-                    <!-- heading -->
-                    <papertitle>Tactile-Augmented Radiance Fields
-                    </papertitle>
-                    <!-- authors -->
-                    <br>
-                    <strong>Yiming Dou</strong>,
-                    <a href="https://fredfyyang.github.io/">Fengyu Yang</a>,
-                    <a href="">Yi Liu</a>,
-                    <a href="https://antonilo.github.io/">Antonio Loquercio</a>,
-                    <a href="https://andrewowens.com/">Andrew Owens</a>
-                    <!-- conference & date -->
-                    <br>
-                    CVPR 2024
-                    <br>
-                    <!-- links -->
-                    <a href="https://arxiv.org/abs/2405.04534">paper</a>
-                    · <a href="https://dou-yiming.github.io/TaRF/">project page</a>
-                    · <a href="https://github.com/Dou-Yiming/TaRF">code</a>
-                    <br>
-                    <p style="margin-bottom:0px;margin-top:5px">
-                      We present a visuo-tactile 3D scene representation that can estimate the visual and tactile signals for a given 3D position within the scene.
-                    </p>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td style="padding:10px 20px;width:30%;vertical-align:middle" align="center">
-                    <video src="figs/publications/objectfolder_benchmark.mp4" width="250" autoplay muted playsinline
-                      loop></video>
-                  </td>
-                  <td width="70%" valign="middle">
-                    <!-- heading -->
-                    <papertitle>The ObjectFolder Benchmark: Multisensory Learning with Neural and Real
-                      Objects</papertitle>
-                    <!-- authors -->
-                    <br>
-                    <a href="https://ai.stanford.edu/~rhgao/">Ruohan Gao</a>*,
-                    <strong>Yiming Dou</strong>*,
-                    <a href="https://haolirobo.github.io/">Hao Li</a>*,
-                    <a href="https://tanmay-agarwal.com/">Tanmay Agarwal</a>,
-                    <a href="http://web.stanford.edu/~bohg/">Jeannette Bohg</a>,
-                    <a href="https://yunzhuli.github.io/">Yunzhu Li</a>,
-                    <a href="https://profiles.stanford.edu/fei-fei-li">Li Fei-Fei</a>,
-                    <a href="https://jiajunwu.com/">Jiajun Wu</a>
-                    <!-- conference & date -->
-                    <br>
-                    CVPR 2023
-                    <br>
-                    <!-- links -->
-                    <a href="https://arxiv.org/abs/2306.00956">paper</a>
-                    · <a href="https://objectfolder.stanford.edu/">project page</a>
-                    · <a href="https://github.com/objectfolder">code</a>
-                    · <a href="https://www.objectfolder.org/swan_vis/">interactive demo</a>
-                    · <a href="https://www.youtube.com/watch?v=VhXDempUYgE">video</a>
-                    <br>
-                    <p style="margin-bottom:0px;margin-top:5px">
-                      We introduce a benchmark suite for multisensory object-centric learning with sight, sound, and touch. 
-                      We also introduce a dataset including the multisensory measurements for real-world objects
-                    </p>
-                  </td>
-                </tr>
-
-              </tbody>
-            </table>
-          </div>
-
-          <!-- 2.3 Full list, grouped by year (hidden initially) -->
-          <div id="full_publications" style="display: none;">
-            <table
-              style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-              <tbody>
-                <tr>
-                  <td style="padding:10px 20px;width:30%;vertical-align:middle" align="center">
-                    <video src="figs/publications/t2d2.mp4" width="250" autoplay muted playsinline loop></video>
-                  </td>
-                  <td width="70%" valign="middle">
-                    <!-- heading -->
-                    <papertitle>Cross-Sensor Touch Generation</papertitle>
-                    <!-- authors -->
-                    <br>
-                    <a
-                      href="https://scholar.google.com/citations?hl=en&user=40qJCVcAAAAJ&view_op=list_works&gmla=AOAOcb2_9BvSpCB7V9TJdqUXyEh-cyIvxbucDLBeQSWXW_zc59fx9wanTJUXb_0qTnmXky4zE9tjvOWTBLjEklmo">Samanta
-                      Rodriguez</a>*,
-                    <strong>Yiming Dou</strong>*,
-                    <a href="https://mr-mikmik.github.io/">Miquel Oller</a>,
-                    <a href="https://andrewowens.com/">Andrew Owens</a>,
-                    <a href="https://www.mmintlab.com/people/nima-fazeli/">Nima Fazeli</a>
-                    <!-- conference & date -->
-                    <br>
-                    CoRL 2025 (<strong style="color: rgb(190, 11, 11);">Oral</strong>)
-                    <br>
-                    <!-- links -->
-                    <a href="https://openreview.net/pdf?id=oGcC8nMOit">paper</a>
-                    · <a href="https://samantabelen.github.io/cross_sensor_touch_generation/">project page</a>
-                    <br>
-                    <p style="margin-bottom:0px;margin-top:5px">
-                      We learn to translate touch signals captured from one touch sensor to another, which allows us to transfer object manipulation policies between sensors. 
-                    </p>
-                  </td>
-                </tr>
-
-                <tr>
-                  <!-- <td style="padding:10px 20px;width:30%;vertical-align:middle" align="center">
-                    <img src="figs/publications/hearing_hands.jpg" style="border-style: none" width="250">
-                  </td> -->
-                  <td style="padding:10px 20px;width:30%;vertical-align:middle" align="center">
-                    <video src="figs/publications/hearing_hands.mp4" width="250" autoplay muted playsinline
-                      loop></video>
-                  </td>
-                  <td width="70%" valign="middle">
-                    <!-- heading -->
-                    <papertitle>Hearing Hands: Generating Sounds from Physical Interactions in 3D Scenes
-                    </papertitle>
-                    <!-- authors -->
-                    <br>
-                    <strong>Yiming Dou</strong>,
-                    <a href="https://prbs5kong.github.io/">Wonseok Oh</a>,
-                    <a href="https://www.linkedin.com/in/yuqing-luo-452715249/">Yuqing Luo</a>,
-                    <a href="https://antonilo.github.io/">Antonio Loquercio</a>,
-                    <a href="https://andrewowens.com/">Andrew Owens</a>
-                    <!-- conference & date -->
-                    <br>
-                    CVPR 2025
-                    <br>
-                    <!-- links -->
-                    <a href="https://arxiv.org/abs/2506.09989">paper</a>
-                    · <a href="https://www.yimingdou.com/hearing_hands/">project page</a>
-                    · <a href="https://github.com/Dou-Yiming/hearing_hands">code</a>
-                    <br>
-                    <p style="margin-bottom:0px;margin-top:5px">
-                      We make 3D scene reconstruction interactive by predicting the sounds of human hands physically interacting with the scene.
-                    </p>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td style="padding:10px 20px;width:30%;vertical-align:middle" align="center">
+                <!-- Contrastive Touch-to-Touch Pretraining (Not Selected) -->
+                <tr data-selected="false">
+                  <td class="publication-media">
                     <img src="figs/publications/cttp.jpg" style="border-style: none" width="250">
                   </td>
-                  <td width="70%" valign="middle">
-                    <!-- heading -->
-                    <papertitle>Contrastive Touch-to-Touch Pretraining
-                    </papertitle>
-                    <!-- authors -->
+                  <td class="publication-details">
+                    <papertitle>Contrastive Touch-to-Touch Pretraining</papertitle>
                     <br>
                     <a
                       href="https://scholar.google.com/citations?hl=en&user=40qJCVcAAAAJ&view_op=list_works&gmla=AOAOcb2_9BvSpCB7V9TJdqUXyEh-cyIvxbucDLBeQSWXW_zc59fx9wanTJUXb_0qTnmXky4zE9tjvOWTBLjEklmo">Samanta
@@ -462,30 +300,26 @@
                     <a href="">Kevin So</a>,
                     <a href="https://andrewowens.com/">Andrew Owens</a>,
                     <a href="https://www.mmintlab.com/people/nima-fazeli/">Nima Fazeli</a>
-                    <!-- conference & date -->
                     <br>
                     ICRA 2025
                     <br>
-                    <!-- links -->
                     <a href="https://arxiv.org/abs/2410.11834">paper</a>
                     · <a href="https://www.mmintlab.com/research/cttp/">project page</a>
                     · <a href="https://github.com/MMintLab/CTTP">code</a>
                     <br>
-                    <p style="margin-bottom:0px;margin-top:5px">
+                    <p class="publication-description">
                       We learn a unified representation that captures the shared information between different tactile sensors using contrastive learning.
                     </p>
                   </td>
                 </tr>
 
-                <tr>
-                  <td style="padding:10px 20px;width:30%;vertical-align:middle" align="center">
+                <!-- Tactile Functasets (Not Selected) -->
+                <tr data-selected="false">
+                  <td class="publication-media">
                     <img src="figs/publications/tactile_functa.png" style="border-style: none" width="250">
                   </td>
-                  <td width="70%" valign="middle">
-                    <!-- heading -->
-                    <papertitle>Tactile Functasets: Neural Implicit Representations of Tactile Datasets
-                    </papertitle>
-                    <!-- authors -->
+                  <td class="publication-details">
+                    <papertitle>Tactile Functasets: Neural Implicit Representations of Tactile Datasets</papertitle>
                     <br>
                     <a href="https://sikai-li.gitbook.io/sikai_li">Sikai Li</a>,
                     <a
@@ -494,29 +328,26 @@
                     <strong>Yiming Dou</strong>,
                     <a href="https://andrewowens.com/">Andrew Owens</a>,
                     <a href="https://www.mmintlab.com/people/nima-fazeli/">Nima Fazeli</a>
-                    <!-- conference & date -->
                     <br>
                     ICRA 2025
                     <br>
-                    <!-- links -->
                     <a href="https://arxiv.org/abs/2409.14592">paper</a>
                     · <a href="https://www.mmintlab.com/tactile-functasets/">project page</a>
                     · <a href="https://github.com/MMintLab/tactile_functasets">code</a>
                     <br>
-                    <p style="margin-bottom:0px;margin-top:5px">
+                    <p class="publication-description">
                       We introduce a novel implicit function representation for tactile signals, which improves the efficiency and generalization of tactile signals.
                     </p>
                   </td>
                 </tr>
 
-                <tr>
-                  <td style="padding:10px 20px;width:30%;vertical-align:middle" align="center">
+                <!-- Touch2Touch (Not Selected) -->
+                <tr data-selected="false">
+                  <td class="publication-media">
                     <video src="figs/publications/touch2touch.mp4" width="250" autoplay muted playsinline loop></video>
                   </td>
-                  <td width="70%" valign="middle">
-                    <!-- heading -->
+                  <td class="publication-details">
                     <papertitle>Touch2Touch: Cross-Modal Tactile Generation for Object Manipulation</papertitle>
-                    <!-- authors -->
                     <br>
                     <a
                       href="https://scholar.google.com/citations?hl=en&user=40qJCVcAAAAJ&view_op=list_works&gmla=AOAOcb2_9BvSpCB7V9TJdqUXyEh-cyIvxbucDLBeQSWXW_zc59fx9wanTJUXb_0qTnmXky4zE9tjvOWTBLjEklmo">Samanta
@@ -525,59 +356,51 @@
                     <a href="https://mr-mikmik.github.io/">Miquel Oller</a>,
                     <a href="https://andrewowens.com/">Andrew Owens</a>,
                     <a href="https://www.mmintlab.com/people/nima-fazeli/">Nima Fazeli</a>
-                    <!-- conference & date -->
                     <br>
                     arXiv 2024
                     <br>
-                    <!-- links -->
                     <a href="https://arxiv.org/abs/2409.08269">paper</a>
                     · <a href="https://www.mmintlab.com/research/touch2touch/">project page</a>
                     <br>
-                    <p style="margin-bottom:0px;margin-top:5px">
-                      We learn to translate touch signals captured from one touch sensor to another, which allows us to transfer object manipulation policies between sensors. 
+                    <p class="publication-description">
+                      We learn to translate touch signals captured from one touch sensor to another, which allows us to transfer object manipulation policies between sensors.
                     </p>
                   </td>
                 </tr>
 
-                <tr>
-                  <td style="padding:10px 20px;width:30%;vertical-align:middle" align="center">
+                <!-- Tactile-Augmented Radiance Fields (Selected) -->
+                <tr data-selected="true">
+                  <td class="publication-media">
                     <video src="figs/publications/tarf.mp4" width="250" autoplay muted playsinline loop></video>
                   </td>
-                  <td width="70%" valign="middle">
-                    <!-- heading -->
-                    <papertitle>Tactile-Augmented Radiance Fields
-                    </papertitle>
-                    <!-- authors -->
+                  <td class="publication-details">
+                    <papertitle>Tactile-Augmented Radiance Fields</papertitle>
                     <br>
                     <strong>Yiming Dou</strong>,
                     <a href="https://fredfyyang.github.io/">Fengyu Yang</a>,
                     <a href="">Yi Liu</a>,
                     <a href="https://antonilo.github.io/">Antonio Loquercio</a>,
                     <a href="https://andrewowens.com/">Andrew Owens</a>
-                    <!-- conference & date -->
                     <br>
                     CVPR 2024
                     <br>
-                    <!-- links -->
                     <a href="https://arxiv.org/abs/2405.04534">paper</a>
                     · <a href="https://dou-yiming.github.io/TaRF/">project page</a>
                     · <a href="https://github.com/Dou-Yiming/TaRF">code</a>
                     <br>
-                    <p style="margin-bottom:0px;margin-top:5px">
+                    <p class="publication-description">
                       We present a visuo-tactile 3D scene representation that can estimate the visual and tactile signals for a given 3D position within the scene.
                     </p>
                   </td>
                 </tr>
 
-                <tr>
-                  <td style="padding:10px 20px;width:30%;vertical-align:middle" align="center">
+                <!-- UniTouch (Not Selected) -->
+                <tr data-selected="false">
+                  <td class="publication-media">
                     <img src="figs/publications/unitouch.png" style="border-style: none" width="250">
                   </td>
-                  <td width="70%" valign="middle">
-                    <!-- heading -->
-                    <papertitle>Binding Touch to Everything: Learning Unified Multimodal Tactile Representations
-                    </papertitle>
-                    <!-- authors -->
+                  <td class="publication-details">
+                    <papertitle>Binding Touch to Everything: Learning Unified Multimodal Tactile Representations</papertitle>
                     <br>
                     <a href="https://fredfyyang.github.io/">Fengyu Yang</a>*,
                     <a href="https://cfeng16.github.io/">Chao Feng</a>*,
@@ -590,29 +413,26 @@
                     <a href="https://www.linkedin.com/in/suchisrit/">Rit Gangopadhyay</a>,
                     <a href="https://andrewowens.com/">Andrew Owens</a>,
                     <a href="https://vision.cs.yale.edu/members/alex-wong.html">Alex Wong</a>
-                    <!-- conference & date -->
                     <br>
                     CVPR 2024
                     <br>
-                    <!-- links -->
                     <a href="https://arxiv.org/abs/2401.18084">paper</a>
                     · <a href="https://cfeng16.github.io/UniTouch/">project page</a>
                     · <a href="https://github.com/cfeng16/UniTouch">code</a>
                     <br>
-                    <p style="margin-bottom:0px;margin-top:5px">
+                    <p class="publication-description">
                       We introduce UniTouch, a unified tactile representation for vision-based touch sensors connected to multiple modalities, including vision, language, and sound.
                     </p>
                   </td>
                 </tr>
 
-                <tr>
-                  <td style="padding:10px 20px;width:30%;vertical-align:middle" align="center">
+                <!-- Pangea (Not Selected) -->
+                <tr data-selected="false">
+                  <td class="publication-media">
                     <img src="figs/publications/pangea.png" style="border-style: none" width="250">
                   </td>
-                  <td width="70%" valign="middle">
-                    <!-- heading -->
+                  <td class="publication-details">
                     <papertitle>Bridging The Isolated Islands in Human Action Understanding</papertitle>
-                    <!-- authors -->
                     <br>
                     <a href="https://dirtyharrylyl.github.io/">Yong-Lu Li</a>*,
                     <a href="https://scholar.google.com/citations?hl=en&user=-PHR96oAAAAJ">Xiaoqian Wu</a>*,
@@ -624,31 +444,26 @@
                     <a href="">Jingru Tan</a>,
                     <a href="https://lucky-lance.github.io/">Xudong Lu</a>,
                     <a href="https://www.mvig.org/">Cewu Lu</a>
-                    <!-- conference & date -->
                     <br>
                     CVPR 2024 (<strong style="color: rgb(190, 11, 11);">Highlight</strong>)
                     <br>
-                    <!-- links -->
                     <a href="https://arxiv.org/abs/2304.00553">paper</a>
                     · <a href="https://mvig-rhos.com/pangea">project page</a>
                     · <a href="https://github.com/DirtyHarryLYL/Sandwich">code</a>
                     <br>
-                    <p style="margin-bottom:0px;margin-top:5px">
+                    <p class="publication-description">
                       We design a structured action semantic space given verb taxonomy hierarchy and align the classes of previous datasets to it.
                     </p>
                   </td>
                 </tr>
 
-                <tr>
-                  <td style="padding:10px 20px;width:30%;vertical-align:middle" align="center">
-                    <video src="figs/publications/objectfolder_benchmark.mp4" width="250" autoplay muted playsinline
-                      loop></video>
+                <!-- ObjectFolder Benchmark (Selected) -->
+                <tr data-selected="true">
+                  <td class="publication-media">
+                    <video src="figs/publications/objectfolder_benchmark.mp4" width="250" autoplay muted playsinline loop></video>
                   </td>
-                  <td width="70%" valign="middle">
-                    <!-- heading -->
-                    <papertitle>The ObjectFolder Benchmark: Multisensory Learning with Neural and Real
-                      Objects</papertitle>
-                    <!-- authors -->
+                  <td class="publication-details">
+                    <papertitle>The ObjectFolder Benchmark: Multisensory Learning with Neural and Real Objects</papertitle>
                     <br>
                     <a href="https://ai.stanford.edu/~rhgao/">Ruohan Gao</a>*,
                     <strong>Yiming Dou</strong>*,
@@ -658,55 +473,21 @@
                     <a href="https://yunzhuli.github.io/">Yunzhu Li</a>,
                     <a href="https://profiles.stanford.edu/fei-fei-li">Li Fei-Fei</a>,
                     <a href="https://jiajunwu.com/">Jiajun Wu</a>
-                    <!-- conference & date -->
                     <br>
                     CVPR 2023
                     <br>
-                    <!-- links -->
                     <a href="https://arxiv.org/abs/2306.00956">paper</a>
                     · <a href="https://objectfolder.stanford.edu/">project page</a>
                     · <a href="https://github.com/objectfolder">code</a>
                     · <a href="https://www.objectfolder.org/swan_vis/">interactive demo</a>
                     · <a href="https://www.youtube.com/watch?v=VhXDempUYgE">video</a>
                     <br>
-                    <p style="margin-bottom:0px;margin-top:5px">
-                      We introduce a benchmark suite for multisensory object-centric learning with sight, sound, and touch. 
+                    <p class="publication-description">
+                      We introduce a benchmark suite for multisensory object-centric learning with sight, sound, and touch.
                       We also introduce a dataset including the multisensory measurements for real-world objects
                     </p>
                   </td>
                 </tr>
-
-                <!-- <tr>
-                  <td style="padding:10px 20px;width:30%;vertical-align:middle" align="center">
-                    <img src="figs/publications/dio.png" style="border-style: none" width="250">
-                  </td>
-                  <td width="70%" valign="middle">
-                    <papertitle>Discovering A Variety of Objects in Spatio-Temporal Human-Object Interactions
-                    </papertitle>
-                    <br>
-                    <a href="https://dirtyharrylyl.github.io/">Yong-Lu Li</a>*,
-                    <a href="https://hwfan.io/">Hongwei Fan</a>*,
-                    <a href="">Zuoyu Qiu</a>,
-                    <strong>Yiming Dou</strong>,
-                    <a href="">Liang Xu</a>,
-                    <a href="">Hao-Shu Fang</a>,
-                    <a href="">Peiyang Guo</a>,
-                    <a href="">Haisheng Su</a>,
-                    <a href="">Dongliang Wang</a>,
-                    <a href="">Wei Wu</a>,
-                    <a href="https://www.mvig.org/">Cewu Lu</a>
-
-                    <br>
-                    arXiv 2022
-                    <br>
-                    <a href="https://arxiv.org/abs/2211.07501">paper</a>
-                    · <a href="https://github.com/DirtyHarryLYL/HAKE-AVA">code</a>
-                    <br>
-                    <p style="margin-bottom:0px;margin-top:5px">
-                      We introduce a new benchmark based on AVA: Discovering Interacted Objects (DIO) including 51 interactions and 1,000+ objects.
-                    </p>
-                  </td>
-                </tr> -->
 
               </tbody>
             </table>
@@ -714,21 +495,19 @@
 
 
           <!-- Teaching -->
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table class="content-table">
             <tbody>
               <tr>
-                <td style="padding:0px 20px;width:100%;vertical-align:middle">
+                <td class="section-content" style="padding:0px 20px">
                   <heading>Teaching</heading>
                 </td>
               </tr>
             </tbody>
           </table>
-          <table
-            style="padding:0%;width:96%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table class="section-wrapper">
             <tbody>
               <tr>
-                <td style="padding:0px 10px;width:100%;vertical-align:middle">
+                <td class="section-content">
                   <p>
                     <li style="line-height:125%">
                       <strong>Teaching Assistant</strong>,
@@ -749,24 +528,22 @@
             </tbody>
           </table>
           <!-- Service -->
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table class="content-table">
             <tbody>
               <tr>
-                <td style="padding:0px 20px;width:100%;vertical-align:middle">
+                <td class="section-content" style="padding:0px 20px">
                   <heading>Service</heading>
                 </td>
               </tr>
             </tbody>
           </table>
-          <table
-            style="padding:0%;width:96%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table class="section-wrapper">
             <tbody>
               <tr>
-                <td style="padding:0px 10px;width:100%;vertical-align:middle">
+                <td class="section-content">
                   <p>
                     <li style="line-height:125%">
-                      <strong>Conference reviewer</strong>: ICRA (2025), ICLR (2025, 2026), AAAI (2025), ECCV (2024), CVPR (2023, 2024, 2025, 2026),
+                      <strong>Conference reviewer</strong>: ICRA (2025), ICLR (2025, 2026), AAAI (2025), ECCV (2024, 2026), CVPR (2023, 2024, 2025, 2026),
                       ICCV (2023, 2025), ACMMM (2025)
                     </li>
                     <li style="line-height:125%">
@@ -779,25 +556,39 @@
             </tbody>
           </table>
           <!-- Experience -->
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table class="content-table">
             <tbody>
               <tr>
-                <td style="padding:0px 20px;width:100%;vertical-align:middle">
+                <td class="section-content" style="padding:0px 20px">
                   <heading>Experience</heading>
                 </td>
               </tr>
             </tbody>
           </table>
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table class="content-table">
             <tbody>
+              <tr>
+                <td class="experience-logo">
+                  <img src="figs/amazon_logo.png" style="border-style: none" height="100">
+                </td>
+
+                <td class="experience-details">
+                  <university>Amazon Frontier AI & Robotics</university>
+                  <br>
+                  2026.05 ~ Present
+                  <br>
+                  San Francisco, U.S.
+                  <br>
+                  Applied Scientist Intern
+                </td>
+              </tr>
+
               <tr>
                 <td style="padding:10px 50px;width:25%;vertical-align:middle" align="center">
                   <img src="figs/Cornell_logo.png" style="border-style: none" height="100">
                 </td>
 
-                <td width="75%" valign="middle">
+                <td class="experience-details">
                   <university>Cornell Tech</university>
                   <br>
                   2025.08 ~ Present
@@ -815,7 +606,7 @@
                   <img src="figs/UMich_logo.png" style="border-style: none" height="100">
                 </td>
 
-                <td width="75%" valign="middle">
+                <td class="experience-details">
                   <university>University of Michigan</university>
                   <br>
                   2023.08 ~ 2025.08
@@ -836,7 +627,7 @@
                   <img src="figs/Stanford_logo.png" style="border-style: none" height="100">
                 </td>
 
-                <td width="75%" valign="middle">
+                <td class="experience-details">
                   <university>Stanford University</university>
                   <br>
                   2022.03 ~ 2023.04
@@ -856,7 +647,7 @@
                   <img src="figs/SJTU_logo.png" style="border-style: none" height="100">
                 </td>
 
-                <td width="75%" valign="middle">
+                <td class="experience-details">
                   <!-- heading -->
                   <university>Shanghai Jiao Tong University</university>
                   <br>
@@ -880,21 +671,19 @@
             </tbody>
           </table>
           <!-- Honors -->
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table class="content-table">
             <tbody>
               <tr>
-                <td style="padding:0px 20px;width:100%;vertical-align:middle">
+                <td class="section-content" style="padding:0px 20px">
                   <heading>Selected Honors</heading>
                 </td>
               </tr>
             </tbody>
           </table>
-          <table
-            style="padding:0%;width:96%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table class="section-wrapper">
             <tbody>
               <tr>
-                <td style="padding:0px 10px;width:100%;vertical-align:middle">
+                <td class="section-content">
                   <p>
                     <li style="line-height:125%">
                       <honor>Outstanding Reviewer</honor>, ECCV 2024
@@ -928,26 +717,24 @@
             </tbody>
           </table>
           <!-- Misc -->
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table class="content-table">
             <tbody>
               <tr>
-                <td style="padding:0px 20px;width:100%;vertical-align:middle">
+                <td class="section-content" style="padding:0px 20px">
                   <heading>Misc.</heading>
                 </td>
               </tr>
             </tbody>
           </table>
-          <table
-            style="padding:0%;width:96%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table class="section-wrapper">
             <tbody>
               <tr>
-                <td style="padding:0px 10px;width:100%;vertical-align:middle;text-align:justify"">
+                <td class="section-content" style="text-align:justify">
                   <p style=" text-align:justify;margin-bottom:5px">
                   As a person working on building multisensory systems,
                   I also enjoy being a multisensory embodied agent outside of work:
                   <li style="line-height:125%">
-                    &#128065; <strong>Photography</strong>:
+                    &#128064; <strong>Photography</strong>:
                     I've been learning to take photos since I was <a href="./figs/misc/camera.jpg">7 years old</a>,
                     and have been fortunate to capture some impressive moments along the way.
                     See some of them <a href="https://www.yimingdou.com/gallery/">here</a>!
@@ -991,8 +778,6 @@
   </table>
   <p style="text-align:right">
     Template from <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron's website</a>
-    <br>
-    Last updated on Jan 23, 2026
   </p>
 </body>
 
