@@ -358,17 +358,8 @@ p + .bullets { margin-top: calc(var(--sp-12) - var(--sp-16)); }
 .authors a:hover { color: var(--text); text-decoration-color: var(--accent-soft); }
 .authors strong { color: var(--text); }
 
-.venue { font-style: italic; }
-.badge {
-  margin-left: .1em;
-  font-size: var(--fs-body);
-  line-height: 1;
-  font-style: normal;
-  font-weight: var(--fw-bold);
-  font-variant-caps: all-small-caps;
-  letter-spacing: .04em;
-  color: var(--accent);
-}
+.venue { font-style: normal; }
+.badge { font: inherit; color: inherit; }
 
 .links {
   margin-top: var(--sp-8) !important;
